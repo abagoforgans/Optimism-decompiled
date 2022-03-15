@@ -17,7 +17,7 @@ function tokenBalance(address arg1, address arg2) {
     if ext_code.size(arg2) <= 0:
         return 0
     require ext_code.size(arg2)
-    staticcall arg2.0x70a08231 with:
+    staticcall arg2.balanceOf(address rg1) with:
             gas gas_remaining wei
            args arg1
     if not ext_call.success:
@@ -102,7 +102,7 @@ function balances(address[] arg1, address[] arg2) {
                     else:
                         mem[mem[64] + 4] = mem[(32 * idx) + 140 len 20]
                         require ext_code.size(address(_213))
-                        staticcall address(_213).0x70a08231 with:
+                        staticcall address(_213).balanceOf(address rg1) with:
                                 gas gas_remaining wei
                                args address(_207)
                         mem[mem[64]] = ext_call.return_data[0]
@@ -160,7 +160,7 @@ function balances(address[] arg1, address[] arg2) {
                 else:
                     mem[mem[64] + 4] = mem[(32 * idx) + 140 len 20]
                     require ext_code.size(address(_214))
-                    staticcall address(_214).0x70a08231 with:
+                    staticcall address(_214).balanceOf(address rg1) with:
                             gas gas_remaining wei
                            args address(_211)
                     mem[mem[64]] = ext_call.return_data[0]
